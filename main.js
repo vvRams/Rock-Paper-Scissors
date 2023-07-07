@@ -35,3 +35,25 @@ function playRound(playerSelection = prompt("Rock Paper Scissors"), computerSele
     }
     return result;
 }
+
+function game() {
+    let winCount = 0;
+    let winner;
+    for  (let rounds = 0; rounds < 5; rounds++) {
+        roundResult = playRound();
+        if (roundResult.slice(0, 7) == "You Win") {
+            ++winCount;
+        } else if (roundResult.slice(0,8) == "You Lose") {
+            --winCount;
+        }
+        console.log(roundResult);
+    }
+    if (winCount > 0) {
+        winner = "You won the best of 5!"
+    } else if (winCount < 0) {
+        winner = "You lost the best of 5."
+    } else {
+        winner = "The best of 5 resulted in a tie."
+    }
+    return winner;
+}
