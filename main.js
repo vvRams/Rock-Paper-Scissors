@@ -3,7 +3,8 @@ function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
     return choices[Math.floor(Math.random() * 3)];
 }
-function playRound(playerSelection, computerSelection){
+
+function playRound(playerSelection = prompt("Rock Paper Scissors"), computerSelection = getComputerChoice()){
     let result;
     if ((playerSelection).toLowerCase() == computerSelection) {
         result = "It's a Tie.";
@@ -14,7 +15,7 @@ function playRound(playerSelection, computerSelection){
                     result = "You Win! Paper beats Rock.";
                 } else if ((playerSelection).toLowerCase() == "scissors") {
                     result = "You Lose. Rock beats Scissors.";
-                }
+                }   
                 break;
             case "paper":
                 if ((playerSelection).toLowerCase() == "scissors") {
@@ -34,6 +35,3 @@ function playRound(playerSelection, computerSelection){
     }
     return result;
 }
-const computerSelection = getComputerChoice();
-const playerSelection = "paper";
-console.log(computerSelection);
